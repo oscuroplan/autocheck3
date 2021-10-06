@@ -339,3 +339,67 @@ for (const value of Object.values(salaries)){
 // Перебери массив объектов colors используя цикл for...of. Добавь в массив hexColors значения свойств hex,
 // а в массив rgbColors значения свойств rgb из всех объектов массива colors.
 
+const colors = [
+  { hex: "#f44336", rgb: "244,67,54" },
+  { hex: "#2196f3", rgb: "33,150,243" },
+  { hex: "#4caf50", rgb: "76,175,80" },
+  { hex: "#ffeb3b", rgb: "255,235,59" },
+];
+
+const hexColors = [];
+const rgbColors = [];
+// Change code below this line
+for (const color of colors) {
+  hexColors.push(color.hex);
+  rgbColors.push(color.rgb);
+}
+
+                                                                                // ЗАДАЧА 18/41
+// Напиши функцию getProductPrice(productName) которая принимает один параметр productName - название продукта.
+// Функция ищет объект продукта с таким именем (свойство name) в массиве products и возвращает его цену (свойство price).
+// Если продукт с таким названием не найден, функция должна возвращать null.
+
+const products = [
+  { name: "Radar", price: 1300, quantity: 4 },
+  { name: "Scanner", price: 2700, quantity: 3 },
+  { name: "Droid", price: 400, quantity: 7 },
+  { name: "Grip", price: 1200, quantity: 9 },
+];
+
+function getProductPrice(productName) {
+  // Change code below this line
+for (const product of products){
+if (product.name === productName)
+{return product.price;
+}
+}
+  return null;
+
+  // Change code above this line
+}
+
+
+                                                                                // ЗАДАЧА 19/41
+// Напиши функцию getAllPropValues(propName) которая принимает один параметр propName - имя (ключ) свойства.
+// Функция должна вернуть массив всех значений свойства с таким именем из каждого объекта в массиве products.
+// Если в объектах нет свойства с таким именем, функция должна вернуть пустой массив.
+
+const products = [
+  { name: "Radar", price: 1300, quantity: 4 },
+  { name: "Scanner", price: 2700, quantity: 3 },
+  { name: "Droid", price: 400, quantity: 7 },
+  { name: "Grip", price: 1200, quantity: 9 },
+];
+
+function getAllPropValues(propName) {
+  // Change code below this line
+
+const result = [];
+  
+  for(const product of products){ 
+    if (product.hasOwnProperty(propName)) 
+      result.push(product[propName])} 
+  return result
+
+  // Change code above this line
+}
