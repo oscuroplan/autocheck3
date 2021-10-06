@@ -213,3 +213,129 @@ const credentials = {
 
                                                                                 // ЗАДАЧА 10/41
 // Перебери объект apartment используя цикл for...in и запиши в массив keys все его ключи, а в массив values все значения его свойств.
+
+const apartment = {
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+};
+const keys = [];
+const values = [];
+// Change code below this line
+for (key in apartment) {
+  keys.push(key); 
+  values.push(apartment[key]);}
+
+
+                                                                                // ЗАДАЧА 11/41
+
+// Выполни рефакторинг решения предыдущего задания добавив в цикл for...in проверку на собственное свойство.
+
+const keys = [];
+const values = [];
+const advert = {
+  service: "apt",
+};
+const apartment = Object.create(advert);
+apartment.descr = "Spacious apartment in the city center";
+apartment.rating = 4;
+apartment.price = 2153;
+
+for (const key in apartment) {
+  // Change code below this line
+if (apartment.hasOwnProperty(key)){
+  keys.push(key);
+  values.push(apartment[key]);
+}
+  // Change code above this line
+}
+
+
+                                                                                // ЗАДАЧА 12/41
+
+// Напиши функцию countProps(object), которая считает и возвращает количество собственных свойств объекта в параметре object.
+// Используй переменную propCount для хранения количества свойств объекта.
+
+function countProps(object) {
+  let propCount = 0;
+  // Change code below this line
+propCount = Object.keys(object).length
+  // Change code above this line
+  return propCount;
+}
+
+
+                                                                                // ЗАДАЧА 13/41
+// Перебери объект apartment используя метод Object.keys() и цикл for...of.
+// Запиши в переменную keys массив ключей собственных свойств объекта apartment,
+// и добавь в массив values все значения его свойств.
+
+const apartment = {
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+};
+const values = [];
+// Change code below this line
+const keys = Object.keys(apartment);
+for (const key of keys) {
+ values.push(apartment[key]);
+}
+
+
+
+                                                                                // ЗАДАЧА 14/41
+// Выполни рефакторинг функции countProps(object) используя метод Object.keys() и, 
+// возможно, но необязательно, цикл for...of.
+
+function countProps(object) {
+  // Change code below this line
+//   let propCount = 0;
+
+//   for (const key in object) {
+//     if (object.hasOwnProperty(key)) {
+//       propCount += 1;
+//     }
+//   }
+
+//   return propCount;
+  return Object.keys(object).length;
+  // Change code above this line
+}
+
+
+                                                                                // ЗАДАЧА 15/41
+
+// Запиши в переменную keys массив ключей собственных свойств объекта apartment,
+// а в переменную values массив всех значений его свойств. Используй методы Object.keys() и Object.values().
+const apartment = {
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+};
+// Change code below this line
+const keys = Object.keys(apartment);
+const values = Object.values(apartment);
+
+
+                                                                                // ЗАДАЧА 16/41
+// Напиши функцию countTotalSalary(salaries) которая принимает объект зарплат, где имя свойства это имя сотрудника,
+// а значение свойства это зарплата. Функция должна рассчитать общую сумму зарплат сотрудников и вернуть её.
+// Используй переменную totalSalary для хранения общей суммы зарплаты.
+
+function countTotalSalary(salaries) {
+  let totalSalary = 0;
+  // Change code below this line
+for (const value of Object.values(salaries)){
+ totalSalary += value;
+  }
+  // Change code above this line
+  return totalSalary;
+}
+
+
+
+                                                                                // ЗАДАЧА 17/41
+// Перебери массив объектов colors используя цикл for...of. Добавь в массив hexColors значения свойств hex,
+// а в массив rgbColors значения свойств rgb из всех объектов массива colors.
+
