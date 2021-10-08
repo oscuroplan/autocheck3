@@ -403,3 +403,180 @@ const result = [];
 
   // Change code above this line
 }
+
+                                                                                // ЗАДАЧА 20/41
+// Напиши функцию calculateTotalPrice(productName) которая принимает один параметр productName - название товара.
+// Функция должна вернуть общую стоимость (цена * количество) товара с таким именем из массива products.
+const products = [
+  { name: "Radar", price: 1300, quantity: 4 },
+  { name: "Scanner", price: 2700, quantity: 3 },
+  { name: "Droid", price: 400, quantity: 7 },
+  { name: "Grip", price: 1200, quantity: 9 },
+];
+
+function calculateTotalPrice(productName) {
+  // Пиши код ниже этой строки
+for (const product of products){
+if (product.name === productName){
+return product.price * product.quantity;
+}
+}
+  return 0;
+  // Пиши код выше этой строки
+}
+
+                                                                                // ЗАДАЧА 21/41
+// Пришел трёхдневный прогноз максимальных температур и мы считаем среднюю температуру за три дня (meanTemperature).
+// Замени объявления переменных yesterday, today и tomorrow одной операцией деструктуризации свойств объекта highTemperatures.
+
+const highTemperatures = {
+  yesterday: 28,
+  today: 26,
+  tomorrow: 33,
+};
+// Change code below this line
+const {yesterday, today, tomorrow} = highTemperatures;
+
+//const yesterday = highTemperatures.yesterday;
+//const today = highTemperatures.today;
+//const tomorrow = highTemperatures.tomorrow;
+
+// Change code above this line
+const meanTemperature = (yesterday + today + tomorrow) / 3;
+
+
+                                                                                // ЗАДАЧА 22/41
+//В прогнозе максимальных температур также может быть необязательное свойство icon - иконка погоды.
+//Замени объявления переменных yesterday, today, tomorrow и icon одной операцией деструктуризации свойств объекта highTemperatures.
+//Задай значение по умолчанию для icon - строку "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg".
+const highTemperatures = {
+  yesterday: 28,
+  today: 26,
+  tomorrow: 33,
+};
+// Change code below this line
+const {yesterday, today, tomorrow, icon = "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg"} = highTemperatures;
+//const yesterday = highTemperatures.yesterday;
+//const today = highTemperatures.today;
+//const tomorrow = highTemperatures.tomorrow;
+//const icon = highTemperatures.icon;
+
+// Change code above this line
+const meanTemperature = (yesterday + today + tomorrow) / 3;
+
+                                                                                // ЗАДАЧА 23/41
+// Замени объявления переменных highYesterday, highToday, highTomorrow и highIcon одной операцией деструктуризации свойств объекта highTemperatures.
+// Задай значение по умолчанию для highIcon - строку "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg".
+const highTemperatures = {
+  yesterday: 28,
+  today: 26,
+  tomorrow: 33,
+};
+// Change code below this line
+
+const {
+  yesterday: highYesterday,
+  today: highToday,
+  tomorrow: highTomorrow,
+  icon: highIcon = "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg"
+} = highTemperatures;
+
+//const highYesterday = highTemperatures.yesterday;
+//const highToday = highTemperatures.today;
+//const highTomorrow = highTemperatures.tomorrow;
+//const highIcon = highTemperatures.icon;
+
+// Change code above this line
+const meanTemperature = (highYesterday + highToday + highTomorrow) / 3;
+
+
+                                                                                // ЗАДАЧА 24/41
+// Выполни рефакторинг цикла for...of так, чтобы в нём использовалась деструктуризация объекта..
+const colors = [
+  { hex: "#f44336", rgb: "244,67,54" },
+  { hex: "#2196f3", rgb: "33,150,243" },
+  { hex: "#4caf50", rgb: "76,175,80" },
+  { hex: "#ffeb3b", rgb: "255,235,59" },
+];
+
+const hexColors = [];
+const rgbColors = [];
+// Change code below this line
+// for (const color of colors) {
+//   hexColors.push(color.hex);
+//   rgbColors.push(color.rgb);
+// }
+for (const {hex, rgb} of colors) {
+  hexColors.push(hex);
+  rgbColors.push(rgb);
+}
+
+                                                                                // ЗАДАЧА 25/41
+// Мы получили прогноз погоды на два дня, с минимальными и максимальными температурами, а также необязательными иконками.
+// Замени объявления всех переменных одной операцией деструктуризации свойств объекта forecast.
+// Задай значение по умолчанию для иконок, переменных todayIcon и tomorrowIcon - строку "https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg".
+const forecast = {
+  today: {
+    low: 28,
+    high: 32,
+    icon: "https://www.flaticon.com/svg/static/icons/svg/861/861059.svg",
+  },
+  tomorrow: {
+    low: 27,
+    high: 31,
+  },
+};
+// Change code below this line
+
+//const highToday = forecast.today.high;
+//const lowToday = forecast.today.low;
+//const todayIcon = forecast.today.icon;
+
+//const highTomorrow = forecast.tomorrow.high;
+//const lowTomorrow = forecast.tomorrow.low;
+//const tomorrowIcon = forecast.tomorrow.icon;
+
+const {
+  today: {
+  	high: highToday,
+  	low: lowToday,
+  	icon: todayIcon = 			"https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg"},
+  tomorrow: {
+    high: highTomorrow,
+  	low: lowTomorrow,
+  	icon: tomorrowIcon = 			"https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg"}
+      } = forecast
+
+                                                                                // ЗАДАЧА 26/41
+// Функция calculateMeanTemperature(forecast) принимает один параметр forecast - объект температур на два дня следующего формата.
+// {
+//   today: { low: 10, high: 20 },
+//   tomorrow: { low: 20, high: 30 }
+// }
+// Замени объявления переменных todayLow, todayHigh, tomorrowLow и tomorrowHigh одной операцией деструктуризации свойств объекта forecast.
+// Change code below this line
+function calculateMeanTemperature(forecast) {
+//  const todayLow = forecast.today.low;
+//  const todayHigh = forecast.today.high;
+//  const tomorrowLow = forecast.tomorrow.low;
+//  const tomorrowHigh = forecast.tomorrow.high;
+  
+  const {
+    today: {
+      low: todayLow,
+      high: todayHigh,
+    },
+    tomorrow: {
+      low: tomorrowLow,
+      high: tomorrowHigh,
+    }
+  } = forecast;
+
+  // Change code above this line
+  return (todayLow + todayHigh + tomorrowLow + tomorrowHigh) / 4;
+}
+
+
+                                                                                // ЗАДАЧА 27/41
+// В переменной scores хранится массив результатов тестирования.
+// Используя распыление и методы Math.max() и Math.min() дополни код так, чтобы в переменной bestScore был самый высокий балл, а в worstScore самый низкий.
